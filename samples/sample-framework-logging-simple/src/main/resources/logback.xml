@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+
+    <!--
+        Only provides logging to console!
+
+        Example of file-based appender:
+
+        <appender name="APPLICATION" class="ch.qos.logback.core.rolling.RollingFileAppender">
+            <file>${system.logDirectory}/filename.log</file>
+            <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+                <charset>charset</charset>
+                <pattern>pattern</pattern>
+            </encoder>
+            <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+                <fileNamePattern>${system.logDirectory}/filename.log.%i.%d.gz</fileNamePattern>
+                <maxFileSize>10MB</maxFileSize>
+                <maxHistory>10</maxHistory>
+                <totalSizeCap>2GB</totalSizeCap>
+            </rollingPolicy>
+        </appender>
+     -->
+
+    <!-- @formatter:off -->
+    <appender name="APPLICATION" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+            <charset>UTF-8</charset>
+            <pattern>time="%date{yyyy-MM-dd'T'HH:mm:ss.SSSXXX}" thread="%thread" severity="%level" logger="%logger{36}" app="sample" trace_id="%X{trace_id}" message="%message" %n%exception</pattern>
+        </encoder>
+    </appender>
+
+    <appender name="COMMUNICATION" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+            <charset>UTF-8</charset>
+            <pattern>time="%date{yyyy-MM-dd'T'HH:mm:ss.SSSXXX}" thread="%thread" severity="%level" logger="%logger{36}" app="sample" trace_id="%X{trace_id}" src_ip="%X{src_ip}" type="%X{type}" http_query_string="%X{http_query_string}" http_method="%X{http_method}" http_uri="%X{http_uri}" http_status="%X{http_status}" message="%message" %n%nopex</pattern>
+        </encoder>
+    </appender>
+
+    <appender name="PERFORMANCE" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+            <charset>UTF-8</charset>
+            <pattern>time="%date{yyyy-MM-dd'T'HH:mm:ss.SSSXXX}" thread="%thread" severity="%level" logger="%logger{36}" app="sample" trace_id="%X{trace_id}" type="%X{type}" elapsed_time_ms="%X{elapsed_time_ms}" http_query_string="%X{http_query_string}" http_method="%X{http_method}" http_uri="%X{http_uri}" method_sign="%X{method_sign}" message="%message" %n%nopex</pattern>
+        </encoder>
+    </appender>
+
+    <logger name="COMMUNICATION" level="DEBUG" additivity="false">
+        <appender-ref ref="COMMUNICATION"/>
+    </logger>
+
+    <logger name="PERFORMANCE" level="DEBUG" additivity="false">
+        <appender-ref ref="PERFORMANCE"/>
+    </logger>
+
+    <logger name="org.springplayground" level="DEBUG" additivity="false">
+        <appender-ref ref="APPLICATION"/>
+    </logger>
+
+    <root level="INFO">
+        <appender-ref ref="APPLICATION"/>
+    </root>
+
+</configuration>

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+
+    <!--
+        Only provides logging to console!
+
+        Example of file-based appender:
+
+        <appender name="APPLICATION" class="ch.qos.logback.core.rolling.RollingFileAppender">
+            <file>${system.logDirectory}/filename.log</file>
+            <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+                <charset>charset</charset>
+                <pattern>pattern</pattern>
+            </encoder>
+            <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+                <fileNamePattern>${system.logDirectory}/filename.log.%i.%d.gz</fileNamePattern>
+                <maxFileSize>10MB</maxFileSize>
+                <maxHistory>10</maxHistory>
+                <totalSizeCap>2GB</totalSizeCap>
+            </rollingPolicy>
+        </appender>
+     -->
+
+    <!-- @formatter:off -->
+
+    <!-- Regular application logging -->
+    <appender name="APPLICATION" class="ch.qos.logback.core.ConsoleAppender">
+        <layout class="ch.qos.logback.contrib.json.classic.JsonLayout">
+            <jsonFormatter class="ch.qos.logback.contrib.jackson.JacksonJsonFormatter">
+                <prettyPrint>false</prettyPrint>
+            </jsonFormatter>
+            <appendLineSeparator>true</appendLineSeparator>
+            <includeContextName>false</includeContextName>
+            <timestampFormat>yyyy-MM-dd'T'HH:mm:ss.SSSXXX</timestampFormat>
+        </layout>
+    </appender>
+
+    <!-- Non-functional logging (communication, performance, etc) -->
+    <appender name="NFL" class="ch.qos.logback.core.ConsoleAppender">
+        <layout class="ch.qos.logback.contrib.json.classic.JsonLayout">
+            <jsonFormatter class="ch.qos.logback.contrib.jackson.JacksonJsonFormatter">
+                <prettyPrint>false</prettyPrint>
+            </jsonFormatter>
+            <appendLineSeparator>true</appendLineSeparator>
+            <includeContextName>false</includeContextName>
+            <includeMessage>false</includeMessage>
+            <includeException>false</includeException>
+            <includeLevel>false</includeLevel>
+            <includeThreadName>false</includeThreadName>
+            <timestampFormat>yyyy-MM-dd'T'HH:mm:ss.SSSXXX</timestampFormat>
+        </layout>
+    </appender>
+
+    <logger name="COMMUNICATION" level="DEBUG" additivity="false">
+        <appender-ref ref="NFL"/>
+    </logger>
+
+    <logger name="PERFORMANCE" level="DEBUG" additivity="false">
+        <appender-ref ref="NFL"/>
+    </logger>
+
+    <logger name="org.springplayground" level="DEBUG" additivity="false">
+        <appender-ref ref="APPLICATION"/>
+    </logger>
+
+    <root level="INFO">
+        <appender-ref ref="APPLICATION"/>
+    </root>
+
+</configuration>
