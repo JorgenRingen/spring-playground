@@ -17,5 +17,6 @@
         <module>sample-framework-swagger</module>
         <module>sample-framework-tracing</module>
         <module>sample-framework-tracing-sleuth</module>
+        <module>sample-transactional-eventlistener</module>
     </modules>
 </project>
