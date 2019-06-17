@@ -1,6 +1,5 @@
 package com.example.transactionaleventlistener;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -13,15 +12,15 @@ public class TransactionaleventlistenerApplication {
         SpringApplication.run(TransactionaleventlistenerApplication.class, args);
     }
 
-    @Autowired
-    private MyTransactionalService myTransactionalService;
-
     @Bean
-
-    public CommandLineRunner commandLineRunner() {
+    public CommandLineRunner commandLineRunner(MyTransactionalService myTransactionalService) {
         return args -> {
             myTransactionalService.foo(false);
-            myTransactionalService.foo(true);
+            try {
+                myTransactionalService.foo(true);
+            } catch (RuntimeException e) {
+                // do nothing...
+            }
         };
     }
 
