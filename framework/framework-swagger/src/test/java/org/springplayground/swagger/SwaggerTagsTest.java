@@ -20,7 +20,7 @@ class SwaggerTagsTest {
     @Test
     void oneTag() {
         final SwaggerTags swaggerTags = SwaggerTags.builder()
-                .tag(new Tag("foo", "bar"))
+                .tag(new Tag("message", "bar"))
                 .build();
 
         assertThat(swaggerTags.first()).isPresent();
