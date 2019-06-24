@@ -20,5 +20,6 @@
         <module>sample-transactional-eventlistener</module>
         <module>sample-spring-hateoas</module>
         <module>sample-spring-mvc-content-type-negotiation</module>
+        <module>sample-spring-boot-actuator-prometheus-grafana</module>
     </modules>
 </project>
