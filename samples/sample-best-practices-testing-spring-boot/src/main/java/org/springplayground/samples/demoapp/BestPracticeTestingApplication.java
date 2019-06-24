@@ -6,10 +6,10 @@ import org.springframework.context.annotation.EnableAspectJAutoProxy;
 
 @EnableAspectJAutoProxy(proxyTargetClass = true)
 @SpringBootApplication
-public class DemoApplication {
+public class BestPracticeTestingApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(DemoApplication.class, args);
+        SpringApplication.run(BestPracticeTestingApplication.class, args);
     }
 
 }
