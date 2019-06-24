@@ -18,5 +18,6 @@
         <module>sample-framework-tracing</module>
         <module>sample-framework-tracing-sleuth</module>
         <module>sample-transactional-eventlistener</module>
+        <module>sample-spring-hateoas</module>
     </modules>
 </project>
