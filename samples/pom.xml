@@ -23,5 +23,6 @@
         <module>sample-spring-boot-actuator-prometheus-grafana</module>
         <module>sample-spring-mvc-data-lombok-postgresql-microservice</module>
         <module>sample-spring-webflux-data-lombok-postgresql-microservice</module>
+        <module>sample-spring-actuator-custom-healthchecks</module>
     </modules>
 </project>

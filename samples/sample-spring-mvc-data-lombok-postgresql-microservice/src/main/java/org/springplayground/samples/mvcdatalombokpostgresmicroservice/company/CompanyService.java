@@ -1,11 +1,11 @@
 package org.springplayground.samples.mvcdatalombokpostgresmicroservice.company;
 
-import javax.transaction.Transactional;
 
 import java.util.List;
 import java.util.Optional;
 
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import org.springplayground.samples.mvcdatalombokpostgresmicroservice.employee.Employee;
 import org.springplayground.samples.mvcdatalombokpostgresmicroservice.employee.EmployeeNotFoundException;
 import org.springplayground.samples.mvcdatalombokpostgresmicroservice.employee.EmployeeService;

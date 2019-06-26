@@ -2,12 +2,11 @@ package org.springplayground.samples.webfluxdatalombokpostgresmicroservice.emplo
 
 import reactor.core.publisher.Mono;
 
-import javax.transaction.Transactional;
-
 import java.util.List;
 import java.util.Optional;
 
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
 @Transactional

@@ -2,12 +2,12 @@ package org.springplayground.samples.webfluxdatalombokpostgresmicroservice.compa
 
 import reactor.core.publisher.Mono;
 
-import javax.transaction.Transactional;
 
 import java.util.List;
 import java.util.Optional;
 
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import org.springplayground.samples.webfluxdatalombokpostgresmicroservice.employee.Employee;
 import org.springplayground.samples.webfluxdatalombokpostgresmicroservice.employee.EmployeeNotFoundException;
 import org.springplayground.samples.webfluxdatalombokpostgresmicroservice.employee.EmployeeService;
