@@ -24,5 +24,6 @@
         <module>sample-spring-mvc-data-lombok-postgresql-microservice</module>
         <module>sample-spring-webflux-data-lombok-postgresql-microservice</module>
         <module>sample-spring-actuator-custom-healthchecks</module>
+        <module>sample-spring-webflux-streaming-consumer-producer</module>
     </modules>
 </project>

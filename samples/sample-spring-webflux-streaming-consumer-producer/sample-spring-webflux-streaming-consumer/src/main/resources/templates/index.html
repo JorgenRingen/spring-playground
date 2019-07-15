@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <title>Spring WebFlux and Thymeleaf Server Sent Events</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+
+<body>
+
+    <h2>Spring WebFlux and Thymeleaf Server Sent Events</h2>
+
+    <table>
+        <ul id="dataList">
+
+        </ul>
+    </table>
+
+
+    <script>
+        /**
+         * Streams data from the message-producer by using SSE
+         */
+        var dataList = document.getElementById('dataList');
+        var eventSource = new EventSource('http://localhost:8080/messages/stream');
+
+        eventSource.onmessage = function (event) {
+            console.log(event);
+            dataList.innerHTML = '<li>' + JSON.parse(event.data).value + '</li>' + dataList.innerHTML;
+        };
+
+        eventSource.onerror = function (error) {
+            console.log(error);
+            eventSource.close();
+        };
+    </script>
+
+</body>
+
+</html>

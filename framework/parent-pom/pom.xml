@@ -43,14 +43,14 @@
         <!-- swagger -->
         <springfox-swagger2.version>2.9.2</springfox-swagger2.version>
 
-        <!-- Plugins -->
+        <!-- plugins -->
         <maven-gpg-plugin.version>1.6</maven-gpg-plugin.version>
         <nexus-staging-maven-plugin.version>1.6.8</nexus-staging-maven-plugin.version>
         <maven-checkstyle-plugin.version>3.1.0</maven-checkstyle-plugin.version>
         <acntech-checkstyle-rules.version>0.0.1-SNAPSHOT</acntech-checkstyle-rules.version>
         <jacoco-maven-plugin.version>0.8.4</jacoco-maven-plugin.version>
 
-        <!-- Jacoco and Sonar -->
+        <!-- jacoco and sonar -->
         <sonar.java.coveragePlugin>jacoco</sonar.java.coveragePlugin>
         <sonar.language>java</sonar.language>
         <sonar.projectKey>${project.groupId}:${project.artifactId}</sonar.projectKey>
