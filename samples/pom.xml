@@ -25,5 +25,6 @@
         <module>sample-spring-webflux-data-lombok-postgresql-microservice</module>
         <module>sample-spring-actuator-custom-healthchecks</module>
         <module>sample-spring-webflux-streaming-consumer-producer</module>
+        <module>sample-spring-boot-with-bundled-react-app</module>
     </modules>
 </project>
