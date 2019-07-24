@@ -1,4 +1,4 @@
-package org.springplayground.samples.webfluxstreaming;
+package org.springplayground.samples.webfluxstreaming.consumer;
 
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -7,7 +7,7 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 @ExtendWith(SpringExtension.class)
 @SpringBootTest
-class MessagesProducerApplicationTests {
+class MessagesConsumerApplicationTests {
 
     @Test
     void contextLoads() {
